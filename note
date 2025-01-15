@@ -1,0 +1,37 @@
+ahna hn3ml ui ykon goz2
+1- tasks
+2- in progress
+3-done
+28:13
+
+
+title of tasks    done
+data              done
+side bar
+sort by priority
+deployment
+
+
+  <!-- <div class="tasks">
+
+    <h2>Backlog @if(tasks.length>0){
+      <Span>{{ tasks.length }}</Span>
+    }
+   </h2>
+    <div
+    cdkDropList
+    #todoList1="cdkDropList"
+    [cdkDropListData]="tasks"
+    [cdkDropListConnectedTo]="[todoList2]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    @for (item of tasks; track $index) {
+      <div class="example-box" cdkDrag>{{item.title}}</div>
+
+      <div class="box">
+        <button class="btn btn-danger" (click)="deleteTask($index)">delete</button>
+        <button class="btn btn-primary" (click)="editTask($index ,item)">Edit</button>
+      </div>
+    }
+  </div>
+</div> -->

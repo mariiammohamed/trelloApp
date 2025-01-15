@@ -1,0 +1,21 @@
+nav{
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .title{
+    margin:10px;
+    a{
+      margin-left: 5px;
+    }
+    svg{
+      color:rgb(12, 143, 219);
+    }
+  }
+  form{
+
+    display: flex;
+    justify-content: space-around;
+  }
+
+}

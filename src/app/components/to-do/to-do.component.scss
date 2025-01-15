@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and border are included in width/height */
+
+}
+.main{
+  height:100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+
+  .sidebar{
+    background-color: rgb(6, 35, 48);
+    width:20%;
+    height:100vh;
+    border-radius: 10px;
+    margin:5px 10px;
+    form{
+      display: flex;
+      flex-direction: column;
+      color:white;
+      margin:10px;
+      div{
+        display: flex;
+        flex-direction: column;
+        margin:10px;
+        input, select {
+          width:100%;
+          background-color: rgba(245, 245, 220, 0.822);
+          border:1px solid rgba(245, 245, 220, 0.527);
+          padding:5px;
+        }
+
+      }
+      .btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button{
+          width: 70%;
+        }
+      }
+
+    }
+  }
+  .actions{
+    background-color:rgb(252, 249, 249);
+    width:80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border:1px solid rgb(252, 249, 249);
+    margin:0px 15px;
+    border-radius: 20px;;
+
+    .tasks{
+      width:25%;
+
+      h2{
+        color: grey;
+        font-size: 20px;
+        margin-top: 20px;
+        span{
+          border:1px solidrgb(243, 239, 239);
+          border-radius: 50%;
+          padding:0 4px;
+          background-color: rgb(243, 239, 239);
+          color: rgba(58, 57, 57, 0.616) !important;
+          font-size: 18px;
+        }
+      }
+
+    }
+    .example-list {
+      min-height: 60px;
+      // background: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px ;
+
+      height: 100%;
+
+      .task{
+        margin:7px 0;
+        .head-task{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding:0 10px ;
+          border:1px solid rgb(6, 35, 48) ;
+          background-color: rgb(6, 35, 48);
+          color: white;
+          border-radius: 8px 8px 0 0 ;
+          font-size: 12px;
+          height: 50px;
+          font-family: Arial, Helvetica, sans-serif;
+          text-transform: capitalize;
+         .task-priority{
+          border:1px solid rgba(128, 128, 128, 0.555);
+          border-radius: 4px;
+          color: rgba(216, 93, 113, 0.87);
+          background-color: rgba(128, 128, 128, 0.568);
+          padding: 5px 10px;
+         }
+        }
+        .content-task{
+          display: block;
+          border:2px solid rgba(140, 145, 143, 0.151);
+          background-color: rgba(255, 255, 255, 0.692);
+          .example-box {
+            padding: 20px 10px;
+            color: rgba(0, 0, 0, 0.87);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            cursor: move;
+            background: white;
+            font-size: 14px;
+          }
+          .content-deadline{
+            font-size: 15px;
+            color: grey;
+            font-family:cursive;
+          }
+      }
+
+      }
+
+    }
+
+    .cdk-drag-preview {
+      border: 1px solid red; /* Add red border when dragging */
+      box-sizing: border-box;
+      border-radius: 4px;
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                  0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+
+
+
+    }
+
+    .cdk-drag-placeholder {
+      opacity: 0;
+
+    }
+
+    .cdk-drag-animating {
+      transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+
+
+    }
+    .example-box:last-child {
+      border: none;
+
+    }
+
+
+    .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+      transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+      color:green;
+    }
+
+  }
+
+
+}
+
+.task.cdk-drag-dragging {
+  border: 2px solid red !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

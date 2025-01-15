@@ -1,0 +1,144 @@
+<div class="main ">
+  <div class="sidebar">
+      <form [formGroup]="toDoForm">
+        <div>
+          <label>Enter the title of task:</label>
+          <input class="form-control" placeholder="task title" formControlName="item" >
+        </div>
+
+        <div>
+          <label>Deadline:</label>
+          <input class="form-control" type="date" placeholder="Date" formControlName="date">
+        </div>
+
+        <div>
+          <label> Priority:</label>
+          <select formControlName="priority" class="form-control">
+            <option value="high" >High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+
+
+        <div>
+          <label>Description:</label>
+          <input class="form-control" placeholder="Description" formControlName="description">
+
+        </div>
+
+        <div class="btn">
+          @if(!isEditEnabled){
+            <!-- //when need to add task in tasks -->
+            <button (click)="addTask()" class="btn btn-primary" [disabled]="toDoForm.invalid">Add</button>
+          }
+          @else{
+            <!-- //when make edit in task attached at (tasks) make update -->
+            <button (click)="updateTask()" class="btn btn-primary">Update</button>
+          }
+        </div>
+
+      </form>
+  </div>
+
+
+
+<div class="actions">
+  <div class="tasks">
+      <!-- //tasks -->
+      <h2>Backlog @if(tasks.length>0){
+        <Span>{{ tasks.length }}</Span>
+      }
+     </h2>
+    <div
+    cdkDropList
+    #todoList1="cdkDropList"
+    [cdkDropListData]="tasks"
+    [cdkDropListConnectedTo]="[todoList2]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)" >
+
+    @for (task of tasks; track task) {
+      <div class="task" cdkDrag>
+
+        <div class="head-task" >
+          <h6 >{{ task.title }}</h6>
+          <p class="task-priority">{{ task.priority }}</p>
+        </div>
+        <div class="content-task">
+            <div class="example-box" >{{task.description}}</div>
+            <p class="content-deadline">Due To : {{task.deadline}}</p>
+        </div>
+      </div>
+
+    }
+  </div>
+  </div>
+
+<div class="tasks">
+<!-- //inprogress -->
+    <!-- //tasks -->
+    <h2>In progress @if(inProgress.length>0){
+      <Span>{{ inProgress.length }}</Span>
+    }
+   </h2>
+  <div
+  cdkDropList
+  #todoList2="cdkDropList"
+  [cdkDropListData]="inProgress"
+  [cdkDropListConnectedTo]="[todoList3]"
+  class="example-list"
+  (cdkDropListDropped)="drop($event)" >
+
+  @for (item of inProgress; track item) {
+    <div class="task" cdkDrag>
+      <div class="head-task" >
+        <h6 >{{ item.title }}</h6>
+        <p class="task-priority"> {{ item.priority }}</p>
+      </div>
+      <div class="content-task">
+          <div class="example-box" >{{item.description}}</div>
+          <p class="content-deadline">Due To : {{ item.deadline}}</p>
+      </div>
+    </div>
+
+  }
+</div>
+</div>
+
+
+
+<!-- //done -->
+
+<div class="tasks">
+  <!-- //inprogress -->
+      <!-- //tasks -->
+      <h2>Done @if(done.length>0){
+        <Span>{{ done.length }}</Span>
+      }
+     </h2>
+    <div
+    cdkDropList
+    #todoList3="cdkDropList"
+    [cdkDropListData]="done"
+    [cdkDropListConnectedTo]="[todoList1]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)" >
+
+    @for (item of done; track item) {
+      <div class="task" cdkDrag>
+        <div class="head-task" >
+          <h6 >{{ item.title }}</h6>
+          <p class="task-priority"> {{ item.priority }}</p>
+        </div>
+        <div class="content-task">
+            <div class="example-box" >{{item.description}}</div>
+            <p class="content-deadline">Due To : {{ item.deadline}}</p>
+        </div>
+      </div>
+
+    }
+  </div>
+  </div>
+
+

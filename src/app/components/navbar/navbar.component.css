@@ -1,0 +1,19 @@
+nav {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+nav .title {
+  margin: 10px;
+}
+nav .title a {
+  margin-left: 5px;
+}
+nav .title svg {
+  color: rgb(12, 143, 219);
+}
+nav form {
+  display: flex;
+  justify-content: space-around;
+}/*# sourceMappingURL=navbar.component.css.map */
