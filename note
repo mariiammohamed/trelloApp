@@ -7,9 +7,11 @@ ahna hn3ml ui ykon goz2
 
 title of tasks    done
 data              done
-side bar
+side bar          done
 sort by priority
+responsive
 deployment
+
 
 
   <!-- <div class="tasks">
@@ -35,3 +37,8 @@ deployment
     }
   </div>
 </div> -->
+
+
+//edit
+//delete
+//responsive
